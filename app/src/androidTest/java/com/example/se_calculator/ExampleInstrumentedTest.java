@@ -15,7 +15,8 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-@RunWith(AndroidJUnit4.class)
+@RunWith(GtestRunner.class)
+@TargetLibrary("se_calculator_test")
 public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() {

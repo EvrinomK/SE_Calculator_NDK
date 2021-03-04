@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Used to load the 'native-lib' library on application startup.
     static {
-        System.loadLibrary("native-lib");
+        System.loadLibrary("app");
     }
 
     @Override
@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Example of a call to a native method
-        //TextView tv = findViewById(R.id.sample_text);
-        //tv.setText(stringFromJNI());
+
+        EditText tv = findViewById(R.id.editText);
+        tv.setText(stringFromJNI());
     }
 
     /**

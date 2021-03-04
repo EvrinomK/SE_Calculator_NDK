@@ -1,6 +1,7 @@
 package com.example.se_calculator;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
@@ -9,6 +10,8 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
+@RunWith(GtestRunner.class)
+@TargetLibrary("apptest")
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
