@@ -32,3 +32,7 @@ TEST(calculatorUtils, calculateImpl_returns_diff_numbers_when_left_value_more_th
 TEST(calculatorUtils, calculateImpl_returns_diff_numbers_when_left_value_less_then_right) {
     ASSERT_DOUBLE_EQ(-1.2, calculateImpl("4.3-5.5"));
 }
+
+TEST(calculatorUtils, calculateImpl_returns_diff_numbers_when_left_number_is_negative) {
+    ASSERT_DOUBLE_EQ(-9.8, calculateImpl("-4.3-5.5"));
+}
