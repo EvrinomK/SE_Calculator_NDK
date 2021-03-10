@@ -32,7 +32,7 @@ Java_com_example_se_1calculator_MainActivity_stringFromJNI(
 }
 
 extern "C"
-JNIEXPORT jint JNICALL
+JNIEXPORT jdouble JNICALL
 Java_com_example_se_1calculator_MainActivity_claclulate(JNIEnv *env, jobject thiz,
                                                         jstring expression) {
     std::string expr = jstring2string(env, expression);
