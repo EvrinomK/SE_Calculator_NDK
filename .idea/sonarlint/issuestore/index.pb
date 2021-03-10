@@ -15,11 +15,11 @@ $app/src/main/cpp/calculatorUtils.cpp,7\b\7b4ffad369d578be8d19da4988bccceeaa76d
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 u
 Eapp/src/androidTest/java/com/example/se_calculator/TargetLibrary.java,0\f\0fdfdded8d9eb2480fd080a9235f780b48556b40
-W
-'app/src/main/cpp/native-lib_unittest.cc,3\b\3b4a7142034139e563f8935f07416e01ad747002
 B
 app/CMakeLists.txt,d\8\d88cace606db47f6a6449061e0bc053eca53f47d
 R
 "app/src/main/cpp/gtest_wrapper.cpp,3\3\331718c1edd5559d830569565394389a7aab31af
 s
 Capp/src/androidTest/java/com/example/se_calculator/GtestRunner.java,9\b\9be9a8997514761b42f0b51848fb4604df339ac4
+X
+(app/src/main/cpp/calculatorUtilsTest.cpp,0\4\042bd5c10db878db2a464e982dd50a5edb8e002d

@@ -1,11 +1,6 @@
 #include <gtest/gtest.h>
 #include "calculatorUtils.h"
 
-TEST(sum, pass) {
-    ASSERT_EQ(42, sum(40, 2));
-}
-
-TEST(sum, fail) {
-    printf("Start test");
-    ASSERT_EQ(42, sum(42, 1));
+TEST(calculatorUtils, calculateImpl_returns_numer_for_str_only_with_number) {
+    ASSERT_EQ(4, calculateImpl("4"));
 }

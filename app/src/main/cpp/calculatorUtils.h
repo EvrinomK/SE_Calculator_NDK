@@ -2,4 +2,4 @@
 #include <jni.h>
 #include <string>
 
-int sum(int r, int l);
+int calculateImpl(const std::string&);

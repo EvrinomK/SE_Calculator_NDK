@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
      * which is packaged with this application.
      */
     public native String stringFromJNI();
+    public native int claclulate(String expression);
 
     private String getCalculationText() {
         EditText calculationText = findViewById(R.id.editText);

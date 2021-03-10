@@ -1,11 +1,13 @@
 
 H
+java:S1172{"+Remove this unused method parameter "view".(Æ„ë¤8Ö‡Ø½ÿ.
+V
+java:S1128
+"4Remove this unused import 'android.widget.TextView'.(„Ë‚ˆÿÿÿÿÿ8æÍŽ÷ÿ.
+X	java:S110"<This class has 9 parents which is greater than 5 authorized.(²Ú±Ž8Û¶–»ÿ.
+H
 java:S1172s"+Remove this unused method parameter "view".(Êþìî8±€Ù½ÿ.
 O
 java:S1135["2Complete the task associated to this TODO comment.(…ïœ†8Í¦¸¾ÿ.
-H
-java:S1172{"+Remove this unused method parameter "view".(Æ„ë¤8Ö‡Ø½ÿ.
-]	java:S125"<This block of commented-out lines of code should be removed.(‚Þ×¬ùÿÿÿÿ8Û¶–»ÿ.
 M
 java:S1172i"+Remove this unused method parameter "view".(û²—Éûÿÿÿÿ8Í…ó½ÿ.
-X	java:S110"<This class has 9 parents which is greater than 5 authorized.(²Ú±Ž8Û¶–»ÿ.
