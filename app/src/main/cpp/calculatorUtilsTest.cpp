@@ -17,6 +17,6 @@ TEST(calculatorUtils, calculateImpl_returns_ambigous_number) {
     ASSERT_EQ(4827, calculateImpl("4827"));
 }
 
-//TEST(calculatorUtils, calculateImpl_returns_sum_natural_numbers) {
-//    ASSERT_EQ(5, calculateImpl("2+3"));
-//}
+TEST(calculatorUtils, calculateImpl_returns_sum_natural_numbers) {
+    ASSERT_EQ(5, calculateImpl("2+3"));
+}
