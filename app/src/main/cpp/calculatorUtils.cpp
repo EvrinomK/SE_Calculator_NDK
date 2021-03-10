@@ -1,5 +1,5 @@
 #include "calculatorUtils.h"
 
-int calculateImpl(const std::string& expr) {
-    return std::stoi(expr);
+double calculateImpl(const std::string& expr) {
+    return std::stod(expr);
 }

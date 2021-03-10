@@ -2,4 +2,4 @@
 #include <jni.h>
 #include <string>
 
-int calculateImpl(const std::string&);
+double calculateImpl(const std::string& expr);
