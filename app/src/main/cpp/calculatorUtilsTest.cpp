@@ -20,3 +20,7 @@ TEST(calculatorUtils, calculateImpl_returns_ambigous_number) {
 TEST(calculatorUtils, calculateImpl_returns_sum_natural_numbers) {
     ASSERT_EQ(5, calculateImpl("2+3"));
 }
+
+TEST(calculatorUtils, calculateImpl_returns_sum_double_numbers) {
+    ASSERT_EQ(5.5, calculateImpl("2.3+3.2"));
+}
