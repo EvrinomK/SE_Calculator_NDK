@@ -24,3 +24,7 @@ TEST(calculatorUtils, calculateImpl_returns_sum_natural_numbers) {
 TEST(calculatorUtils, calculateImpl_returns_sum_double_numbers) {
     ASSERT_EQ(5.5, calculateImpl("2.3+3.2"));
 }
+
+TEST(calculatorUtils, calculateImpl_returns_diff_numbers_when_left_value_more_then_right) {
+    ASSERT_EQ(1.2, calculateImpl("5.5-4.3"));
+}
