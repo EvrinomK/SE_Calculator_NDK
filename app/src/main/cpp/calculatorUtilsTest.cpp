@@ -26,5 +26,5 @@ TEST(calculatorUtils, calculateImpl_returns_sum_double_numbers) {
 }
 
 TEST(calculatorUtils, calculateImpl_returns_diff_numbers_when_left_value_more_then_right) {
-    ASSERT_EQ(1.2, calculateImpl("5.5-4.3"));
+    ASSERT_DOUBLE_EQ(1.2, calculateImpl("5.5-4.3"));
 }
