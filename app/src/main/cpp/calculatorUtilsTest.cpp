@@ -102,3 +102,15 @@ TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_mult_div) {
 TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_mult) {
     ASSERT_DOUBLE_EQ(6, calculateImpl("12/6*3"));
 }
+
+TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_sum_div) {
+    ASSERT_DOUBLE_EQ(5, calculateImpl("12/6+3/1"));
+}
+
+TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_diff_div) {
+    ASSERT_DOUBLE_EQ(-1, calculateImpl("12/6-3/1"));
+}
+
+TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_div_div) {
+    ASSERT_DOUBLE_EQ(5, calculateImpl("100/5/4"));
+}
