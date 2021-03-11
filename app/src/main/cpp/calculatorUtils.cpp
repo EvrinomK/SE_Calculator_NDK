@@ -57,8 +57,12 @@ double calculateImpl(const std::string &expr) {
                     isOperator(expr[operatorsIndexes[i].first - 1])) {
                     //ignore first minus because stod already parsed it
                     continue;
+                } else if (i + 1 > operatorsIndexes.size() ||
+                           operatorsIndexes[i + 1].second == Minus ||
+                           operatorsIndexes[i + 1].second == Sum) {
+                    result -= std::stod(expr.substr(operatorsIndexes[i].first + 1));
                 } else {
-                    result += std::stod(expr.substr(operatorsIndexes[i].first));
+                    return result - calculateImpl(expr.substr(operatorsIndexes[i].first + 1));
                 }
                 break;
             case Operators::Multiplication:
