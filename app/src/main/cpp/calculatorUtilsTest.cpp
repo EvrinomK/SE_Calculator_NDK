@@ -84,3 +84,7 @@ TEST(calculatorUtils, calculateImpl_returns_div_numbers) {
 TEST(calculatorUtils, calculateImpl_returns_div_negative_numbers) {
     ASSERT_DOUBLE_EQ(2, calculateImpl("-4/-2"));
 }
+
+TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_sum) {
+    ASSERT_DOUBLE_EQ(1, calculateImpl("3 + 4/-2"));
+}
