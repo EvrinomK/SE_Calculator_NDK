@@ -43,10 +43,18 @@ double calculateImpl(const std::string &expr) {
 
         switch (operatorsIndexes[i].second) {
             case Operators::Sum:
-                result += std::stod(expr.substr(operatorsIndexes[i].first));
+                if (i + 1 > operatorsIndexes.size() ||
+                    operatorsIndexes[i + 1].second == Minus ||
+                    operatorsIndexes[i + 1].second == Sum) {
+                    result += std::stod(expr.substr(operatorsIndexes[i].first));
+                } else {
+                    return result + calculateImpl(expr.substr(operatorsIndexes[i].first + 1));
+                }
+
                 break;
             case Operators::Minus:
-                if (operatorsIndexes[i].first == 0 || isOperator(expr[operatorsIndexes[i].first - 1])) {
+                if (operatorsIndexes[i].first == 0 ||
+                    isOperator(expr[operatorsIndexes[i].first - 1])) {
                     //ignore first minus because stod already parsed it
                     continue;
                 } else {
