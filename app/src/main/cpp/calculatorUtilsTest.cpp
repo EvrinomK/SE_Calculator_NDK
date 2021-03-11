@@ -64,3 +64,7 @@ TEST(calculatorUtils, calculateImpl_returns_multiple_with_negative_number) {
 TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_with_sum_and_mult) {
     ASSERT_DOUBLE_EQ(14, calculateImpl("2+3*4"));
 }
+
+TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_with_diff_and_mult) {
+    ASSERT_DOUBLE_EQ(10, calculateImpl("22-3*4"));
+}
