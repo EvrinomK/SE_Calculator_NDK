@@ -87,18 +87,18 @@ TEST(calculatorUtils, calculateImpl_returns_div_negative_numbers) {
     ASSERT_DOUBLE_EQ(2, calculateImpl("-4/-2"));
 }
 
-TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_sum) {
+TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_sum_div_negative) {
     ASSERT_DOUBLE_EQ(1, calculateImpl("3+4/-2"));
 }
 
-TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_diff) {
+TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_diff_div) {
     ASSERT_DOUBLE_EQ(1, calculateImpl("3-12/6"));
 }
 
-TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_mult) {
+TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_mult_div) {
     ASSERT_DOUBLE_EQ(2, calculateImpl("3*4/6"));
 }
 
-TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_mult_reverse) {
+TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_mult) {
     ASSERT_DOUBLE_EQ(6, calculateImpl("12/6*3"));
 }
