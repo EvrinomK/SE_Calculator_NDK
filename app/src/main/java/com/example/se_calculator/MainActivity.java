@@ -43,6 +43,22 @@ public class MainActivity extends AppCompatActivity {
         calculationText.setText(text);
     }
 
+    private void setResultText(String text) {
+        EditText calculationText = findViewById(R.id.resultText);
+        TextView equal = findViewById(R.id.equal);
+        equal.setVisibility(View.VISIBLE);
+        calculationText.setVisibility(View.VISIBLE);
+        calculationText.setText(text);
+    }
+
+    private void hideResult() {
+        EditText resultText = findViewById(R.id.resultText);
+        TextView equal = findViewById(R.id.equal);
+        equal.setVisibility(View.GONE);
+        resultText.setVisibility(View.GONE);
+        resultText.setText("");
+    }
+
     private String getLastNumberString() {
         Log.v("getLastNumberString", "");
         String text = getCalculationText();
@@ -89,7 +105,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickCalculate(View view) {
-        //TODO
+        try {
+            double result = claclulate(getCalculationText());
+            setResultText(String.valueOf(result));
+        } catch (Exception ex) {
+            setResultText("Error!");
+        }
     }
 
     public void clickOperation(View view) {
@@ -119,10 +140,13 @@ public class MainActivity extends AppCompatActivity {
         if (!text.isEmpty()) {
             setCalculationText(text.substring(0, text.length() - 1));
         }
+
+        hideResult();
     }
 
     public void clickCleanText(View view) {
         Log.v("clickCleanText", "");
         setCalculationText("");
+        hideResult();
     }
 }
