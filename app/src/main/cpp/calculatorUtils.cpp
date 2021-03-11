@@ -2,8 +2,6 @@
 #include "calculatorUtils.h"
 
 namespace {
-    const std::string operators = "+-";
-
     Operators convertString2Operator(char symbol) {
         if (symbol == '+') {
             return Operators::Sum;
@@ -50,6 +48,9 @@ double calculateImpl(const std::string &expr) {
                 } else {
                     result += std::stod(expr.substr(operatorsIndexes[i].first));
                 }
+                break;
+            case Operators::Multiplication:
+                result *= std::stod(expr.substr(operatorsIndexes[i].first+1));
                 break;
             default:
                 throw std::runtime_error("Unexpected operation");
