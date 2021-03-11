@@ -98,3 +98,7 @@ TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_diff) {
 TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_mult) {
     ASSERT_DOUBLE_EQ(2, calculateImpl("3*4/6"));
 }
+
+TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_mult_reverse) {
+    ASSERT_DOUBLE_EQ(6, calculateImpl("12/6*3"));
+}
