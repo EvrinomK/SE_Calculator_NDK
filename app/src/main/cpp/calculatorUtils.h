@@ -4,8 +4,8 @@
 
 enum Operators {
     Sum,
-    Minus,
-    Multiplication,
+    Diff,
+    Mult,
     Div
 };
 

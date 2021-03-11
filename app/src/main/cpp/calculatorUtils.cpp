@@ -7,9 +7,9 @@ namespace {
             case '+':
                 return Operators::Sum;
             case '-':
-                return Operators::Minus;
+                return Operators::Diff;
             case '*':
-                return Operators::Multiplication;
+                return Operators::Mult;
             case '/':
                 return Operators::Div;
             default:
@@ -24,13 +24,13 @@ namespace {
     bool rightValueIsComplexExpr(const std::vector<std::pair<size_t, Operators>> &operatorsIndexes,
                                  int currentOperIndex) {
         return currentOperIndex + 1 < operatorsIndexes.size() &&
-               (operatorsIndexes[currentOperIndex + 1].second == Multiplication ||
+               (operatorsIndexes[currentOperIndex + 1].second == Mult ||
                 operatorsIndexes[currentOperIndex + 1].second == Div);
     }
 
     bool isUnarMinus(const std::vector<std::pair<size_t, Operators>> &operatorsIndexes,
                      int currentOperIndex) {
-        return operatorsIndexes[currentOperIndex].second == Minus &&
+        return operatorsIndexes[currentOperIndex].second == Diff &&
                (operatorsIndexes[currentOperIndex].first == 0 ||
                 operatorsIndexes[currentOperIndex - 1].first ==
                 operatorsIndexes[currentOperIndex].first - 1);
@@ -41,29 +41,30 @@ namespace {
             int currentOperIndex) {
         for (int i = currentOperIndex + 1; i < operatorsIndexes.size(); ++i) {
             if (operatorsIndexes[i].second == Sum ||
-                (operatorsIndexes[i].second == Minus && !isUnarMinus(operatorsIndexes, i))) {
+                (operatorsIndexes[i].second == Diff && !isUnarMinus(operatorsIndexes, i))) {
                 return i;
             }
         }
 
         return currentOperIndex;
     }
-}
 
-std::vector<std::pair<size_t, Operators>> parseOperatorsFromExpr(const std::string &expr) {
-    std::vector<std::pair<size_t, Operators>> operatorsIndexes = {};
+    std::vector<std::pair<size_t, Operators>> parseOperatorsFromExpr(const std::string &expr) {
+        std::vector<std::pair<size_t, Operators>> operatorsIndexes = {};
 
-    for (size_t i = 0; i < expr.size(); ++i) {
-        try {
-            Operators oper = convertString2Operator(expr[i]);
-            operatorsIndexes.emplace_back(i, oper);
-        } catch (const std::exception &ex) {
-            //ignore
+        for (size_t i = 0; i < expr.size(); ++i) {
+            try {
+                Operators oper = convertString2Operator(expr[i]);
+                operatorsIndexes.emplace_back(i, oper);
+            } catch (const std::exception &ex) {
+                //ignore
+            }
         }
-    }
 
-    return operatorsIndexes;
+        return operatorsIndexes;
+    }
 }
+
 
 double calculateImpl(const std::string &expr) {
     const std::vector<std::pair<size_t, Operators>> operatorsIndexes = parseOperatorsFromExpr(expr);
@@ -86,7 +87,7 @@ double calculateImpl(const std::string &expr) {
                 }
 
                 break;
-            case Operators::Minus:
+            case Operators::Diff:
                 if (isUnarMinus(operatorsIndexes, i)) {
                     //ignore first minus because stod already parsed it
                     continue;
@@ -104,7 +105,7 @@ double calculateImpl(const std::string &expr) {
                     result -= std::stod(expr.substr(operatorsIndexes[i].first + 1));
                 }
                 break;
-            case Operators::Multiplication:
+            case Operators::Mult:
                 result *= std::stod(expr.substr(operatorsIndexes[i].first + 1));
                 break;
             case Operators::Div:
