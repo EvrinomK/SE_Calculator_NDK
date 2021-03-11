@@ -45,7 +45,8 @@ TEST(calculatorUtils, calculateImpl_returns_sum_and_diff_numbers) {
     ASSERT_DOUBLE_EQ(1, calculateImpl("2+3-4"));
 }
 
-TEST(calculatorUtils, calculateImpl_returns_valid_number_for_complex_epression_with_first_negative_number) {
+TEST(calculatorUtils,
+     calculateImpl_returns_valid_number_for_complex_epression_with_first_negative_number) {
     ASSERT_DOUBLE_EQ(4, calculateImpl("-2+3+4-1"));
 }
 
@@ -69,7 +70,8 @@ TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_with_diff_and
     ASSERT_DOUBLE_EQ(10, calculateImpl("22-3*4"));
 }
 
-TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_with_diff_and_mult_negative_numbers) {
+TEST(calculatorUtils,
+     calculateImpl_returns_result_of_complex_expr_with_diff_and_mult_negative_numbers) {
     ASSERT_DOUBLE_EQ(-2, calculateImpl("22-3*-4*-2"));
 }
 
@@ -86,9 +88,13 @@ TEST(calculatorUtils, calculateImpl_returns_div_negative_numbers) {
 }
 
 TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_sum) {
-    ASSERT_DOUBLE_EQ(1, calculateImpl("3 + 4/-2"));
+    ASSERT_DOUBLE_EQ(1, calculateImpl("3+4/-2"));
 }
 
 TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_diff) {
-    ASSERT_DOUBLE_EQ(1, calculateImpl("3 - 12/6"));
+    ASSERT_DOUBLE_EQ(1, calculateImpl("3-12/6"));
+}
+
+TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_mult) {
+    ASSERT_DOUBLE_EQ(2, calculateImpl("3*4/6"));
 }
