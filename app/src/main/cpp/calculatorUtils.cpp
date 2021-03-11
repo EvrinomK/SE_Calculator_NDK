@@ -115,5 +115,9 @@ double calculateImpl(const std::string &expr) {
 
         }
     }
+    if (isinf(result)) {
+        throw std::runtime_error("Infinity result");
+    }
+
     return result;
 }
