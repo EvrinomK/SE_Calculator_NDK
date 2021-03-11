@@ -15,6 +15,10 @@ namespace {
             throw std::runtime_error("Cannot parse operator");
         }
     }
+
+    bool isOperator(char symbol) {
+        return symbol == '+' || symbol == '-' || symbol == '*' || symbol == '/';
+    }
 }
 
 std::vector<std::pair<size_t, Operators>> parseOperatorsFromExpr(const std::string &expr) {
@@ -24,7 +28,7 @@ std::vector<std::pair<size_t, Operators>> parseOperatorsFromExpr(const std::stri
         try {
             Operators oper = convertString2Operator(expr[i]);
             operatorsIndexes.emplace_back(i, oper);
-        } catch (const std::exception& ex) {
+        } catch (const std::exception &ex) {
             //ignore
         }
     }
@@ -42,7 +46,7 @@ double calculateImpl(const std::string &expr) {
                 result += std::stod(expr.substr(operatorsIndexes[i].first));
                 break;
             case Operators::Minus:
-                if (operatorsIndexes[i].first == 0) {
+                if (operatorsIndexes[i].first == 0 || isOperator(expr[operatorsIndexes[i].first - 1])) {
                     //ignore first minus because stod already parsed it
                     continue;
                 } else {
@@ -50,7 +54,7 @@ double calculateImpl(const std::string &expr) {
                 }
                 break;
             case Operators::Multiplication:
-                result *= std::stod(expr.substr(operatorsIndexes[i].first+1));
+                result *= std::stod(expr.substr(operatorsIndexes[i].first + 1));
                 break;
             default:
                 throw std::runtime_error("Unexpected operation");
