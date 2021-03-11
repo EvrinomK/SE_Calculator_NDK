@@ -107,6 +107,9 @@ double calculateImpl(const std::string &expr) {
             case Operators::Multiplication:
                 result *= std::stod(expr.substr(operatorsIndexes[i].first + 1));
                 break;
+            case Operators::Div:
+                result /= std::stod(expr.substr(operatorsIndexes[i].first + 1));
+                break;
             default:
                 throw std::runtime_error("Unexpected operation");
 
