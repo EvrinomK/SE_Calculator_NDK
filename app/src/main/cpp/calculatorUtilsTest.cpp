@@ -114,3 +114,11 @@ TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_diff_div)
 TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_div_div_div) {
     ASSERT_DOUBLE_EQ(5, calculateImpl("100/5/4"));
 }
+
+TEST(calculatorUtils, calculateImpl_returns_result_of_classic) {
+    ASSERT_DOUBLE_EQ(6, calculateImpl("2+2*2"));
+}
+
+TEST(calculatorUtils, calculateImpl_fail_of_div_null) {
+    ASSERT_ANY_THROW(calculateImpl("2/0"));
+}
