@@ -1,3 +1,4 @@
+#include <vector>
 #include "calculatorUtils.h"
 
 namespace {
@@ -18,26 +19,42 @@ namespace {
     }
 }
 
+std::vector<std::pair<size_t, Operators>> parseOperatorsFromExpr(const std::string &expr) {
+    std::vector<std::pair<size_t, Operators>> operatorsIndexes = {};
+
+    for (size_t i = 0; i < expr.size(); ++i) {
+        try {
+            Operators oper = convertString2Operator(expr[i]);
+            operatorsIndexes.emplace_back(i, oper);
+        } catch (const std::exception& ex) {
+            //ignore
+        }
+    }
+
+    return operatorsIndexes;
+}
+
 double calculateImpl(const std::string &expr) {
-    size_t index_of_operator = expr.find_first_of(operators);
+    const std::vector<std::pair<size_t, Operators>> operatorsIndexes = parseOperatorsFromExpr(expr);
+    double result = std::stod(expr);
+    for (int i = 0; i < operatorsIndexes.size(); ++i) {
 
-    if (index_of_operator == std::string::npos) {
-        return std::stod(expr);
-    } else {
-        Operators operation = convertString2Operator(expr[index_of_operator]);
-
-        switch (operation) {
+        switch (operatorsIndexes[i].second) {
             case Operators::Sum:
-                return std::stod(expr.substr(0, index_of_operator)) + std::stod(expr.substr(index_of_operator));
+                result += std::stod(expr.substr(operatorsIndexes[i].first));
+                break;
             case Operators::Minus:
-                if (index_of_operator == 0) {
-                    return std::stod(expr);
+                if (operatorsIndexes[i].first == 0) {
+                    //ignore first minus because stod already parsed it
+                    continue;
                 } else {
-                    return std::stod(expr.substr(0, index_of_operator)) + std::stod(expr.substr(index_of_operator));
+                    result += std::stod(expr.substr(operatorsIndexes[i].first));
                 }
+                break;
             default:
                 throw std::runtime_error("Unexpected operation");
 
         }
     }
+    return result;
 }
