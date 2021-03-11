@@ -76,3 +76,7 @@ TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_with_diff_and
 TEST(calculatorUtils, calculateImpl_returns_result_of_complex_expr_with_few_operations) {
     ASSERT_DOUBLE_EQ(17, calculateImpl("22-3*-4*-2+23-2*2"));
 }
+
+TEST(calculatorUtils, calculateImpl_returns_div_numbers) {
+    ASSERT_DOUBLE_EQ(2, calculateImpl("4/2"));
+}

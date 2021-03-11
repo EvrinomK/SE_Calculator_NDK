@@ -87,8 +87,7 @@ double calculateImpl(const std::string &expr) {
 
                 break;
             case Operators::Minus:
-                if (operatorsIndexes[i].first == 0 ||
-                    operatorsIndexes[i - 1].first == operatorsIndexes[i].first - 1) {
+                if (isUnarMinus(operatorsIndexes, i)) {
                     //ignore first minus because stod already parsed it
                     continue;
                 } else if (rightValueIsComplexExpr(operatorsIndexes, i)) {
